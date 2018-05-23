@@ -1,0 +1,20 @@
+from flask import Flask, flash, redirect, render_template, request, session, abort
+
+app = Flask(__name__)
+
+
+@app.route("/")
+def index():
+    return "Flask App!"
+
+
+@app.route("/hello/<string:name>/")
+def hello(name):
+    if name=='suraj':
+        return render_template('test.html',name=name)
+    else:
+        return  render_template('demo.html',name=name)
+
+
+if __name__ == "__main__":
+    app.run()
